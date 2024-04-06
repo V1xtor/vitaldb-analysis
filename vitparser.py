@@ -5,6 +5,22 @@ import pandas as pd
 import numpy as np
 
 class VitalParser:
+    """
+    Класс для предобработки и визуализации сигналов из набора данных VitalDB.
+
+    Attributes:
+        track_names (list): Список названий сигналов для отслеживания.
+        signal_number (int): Номер сигнала для обработки.
+        samples (numpy.ndarray): Образцы сигналов из набора данных VitalDB.
+        processed_data (pandas.DataFrame): Обработанные данные сигналов.
+
+    Methods:
+        preprocessing(): Выполняет предварительную обработку сигналов.
+        filter_signal(raw, fs): Применяет фильтрацию к сигналу.
+        normalization_signal(df_signals): Нормализует сигналы в диапазоне [0, 1] или [-1, 1].
+        display_parameters(interval): Визуализирует обработанные сигналы в заданном интервале времени.
+    """
+
     track_names = ['SNUADC/ECG_V5', 'BIS/EEG1_WAV', 'SNUADC/ART']
 
     def __init__(self, signal_number):
